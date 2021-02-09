@@ -1,0 +1,12 @@
+<html>
+<head>
+</head>
+<body >
+<button class="ml-50" mat-raised-button color="primary" routerLink="/payment">Payment</button>
+<div class="ml-50">
+  {{creditCard$|async |json}}
+</div>
+<router-outlet></router-outlet>
+</body>
+</html>
+

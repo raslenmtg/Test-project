@@ -1,0 +1,39 @@
+<mat-card class="w-fitcontent">
+  <form [formGroup]="creditCardForm" (ngSubmit)="submitPayment()">
+    <mat-form-field appearance="legacy">
+      <mat-label>Credit Card Number</mat-label>
+      <input  matInput placeholder="Placeholder" formControlName="creditCardNUmber">
+      <mat-error *ngIf="form.creditCardNUmber.errors">Required</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="legacy">
+      <mat-label>Card Holder</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="cardHolder">
+      <mat-error *ngIf="form.cardHolder.errors">Required</mat-error>
+    </mat-form-field>
+    <br>
+ <mat-form-field appearance="legacy">
+      <mat-label>Expiration Date</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="expirationDate" type="date"  [min]="currentDate| date:'yyyy-MM-dd' ">
+      <mat-error *ngIf="form.expirationDate.errors">Expired Date</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="legacy">
+      <mat-label>CCV</mat-label>
+      <input  matInput placeholder="Placeholder" formControlName="ccv">
+      <mat-error *ngIf="form.ccv.errors">Required 3 digits</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="legacy">
+      <mat-label>Amount</mat-label>
+      <input type="number" matInput placeholder="Placeholder" formControlName="amount">
+      <mat-error *ngIf="form.amount.errors && form.amount.errors.min!=undefined">Minimum 1$</mat-error>
+      <mat-error *ngIf="form.amount.errors && form.amount.errors.required">Required</mat-error>
+    </mat-form-field>
+    <br>
+
+    <button type="submit" mat-raised-button color="primary">Send</button>
+
+
+  </form>
+</mat-card>
